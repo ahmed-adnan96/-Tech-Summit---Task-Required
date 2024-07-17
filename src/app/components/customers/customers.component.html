@@ -1,0 +1,17 @@
+<section class="pb-5">
+    <div class="container">
+        <select class="form-select" aria-label="Default select example" [(ngModel)]="idCustomer">
+            <option value="0" selected>All Customers</option>
+            <option *ngFor="let costumer of customs" [value]="costumer.id">{{costumer.name}}</option>
+        </select>
+        <input type="text" class="form-control w-50 m-auto my-2"  [(ngModel)]="InputValue" placeholder="Search.....">
+    </div>
+</section>
+
+<hr>
+
+<div class="py-5 container">
+    <app-transactions [recievedIdFromCustomer]="idCustomer" [recievInputValue]="InputValue"
+        [recieveCustomersDat]="customs"></app-transactions>
+       <app-charts></app-charts>
+</div>

@@ -1,0 +1,27 @@
+<section>
+    <div class="container">
+        <table class=" table table-success table-striped table-bordered">
+            <thead>
+                <tr class="text-center">
+                    <th scope="col">Number</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">amount</th>
+                    <th scope="col">Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="text-center" *ngFor="let transic of filterTrans ; let i = index">
+                    <td>{{i+1}}</td>
+                    <ng-container *ngFor="let custom of recieveCustomersDat" >
+                        <td *ngIf="custom.id == transic.customer_id">{{custom.name}}</td>
+                    </ng-container>
+                    
+                    <td>{{transic.amount | currency : 'EGP'}}</td>
+                    <td>{{transic.date | date : 'yyyy-MM-dd' }}</td>
+                </tr>
+
+
+            </tbody>
+        </table>
+    </div>
+</section>
